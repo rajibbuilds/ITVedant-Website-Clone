@@ -1,0 +1,245 @@
+:root {
+  --theme: #b9d719;
+}
+
+/*! -------------- 1- NAVBAR ---------------- */
+.navbar {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.nav-link {
+  color: black;
+  transition: color 0.5s;
+}
+.nav-link:hover {
+  color: var(--theme);
+}
+
+/*! ------------- 2- CAROUSEL --------------- */
+.carousel-item {
+  height: calc(100vh - 88px);
+  overflow: hidden;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.carousel-item h5 {
+  color: var(--theme);
+  font-size: 2.5rem;
+  text-shadow: 3px 3px 3px black;
+}
+
+.carousel-item p {
+  text-shadow: 3px 3px 3px black;
+  font-weight: 600;
+}
+
+.carousel-item .btn {
+  width: 7rem;
+  margin-bottom: 1rem;
+}
+.carousel-indicators button {
+  background-color: var(--theme) !important;
+  height: 0.4rem !important;
+  width: 3rem !important;
+  margin-right: 0.5rem !important;
+}
+
+/* Custom styles for carousel arrows */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: black;
+}
+
+.carousel-caption {
+  bottom: 5rem;
+  border: solid 1px black;
+  background-color: #75666781;
+}
+
+/*! ------------ 3- ABOUT SECTION ----------- */
+
+/*! ------------- 4- INSTRUCTORS -------------*/
+section#instructors .card {
+  transition: transform 0.5s;
+  height: 30rem;
+}
+
+section#instructors .card:hover {
+  transform: scale(1.05);
+}
+
+section#instructors .socials i {
+  transition: opacity 0.5s;
+}
+
+section#instructors .socials i:hover {
+  opacity: 0.5;
+}
+
+/*! ----------- 4- STUDENTS SECTION ----------*/
+section#students img {
+  max-width: 400px;
+  min-width: 200px;
+}
+
+/*! ----------- 5- COURSES SECTION ----------- */
+section#courses .nav-link.active {
+  background-color: var(--theme);
+}
+section#courses .nav-link {
+  color: white;
+}
+
+/*! ----------- 6- CONTACT SECTION ------------ */
+
+/*! --------------- 7- FOOTER ----------------- */
+footer i {
+  font-size: 2rem;
+  color: white;
+  margin-right: 0.8rem;
+  transition: color 1s;
+}
+
+footer i:hover {
+  color: var(--theme);
+}
+
+/** -------------- UP-BUTTON ------------------ */
+.btn-up {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  color: white;
+  background-color: var(--theme);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  text-decoration: none;
+}
+
+.btn-up:hover {
+  color: black;
+}
+
+.btn-up:hover i {
+  transform: scale(1.2);
+  font-size: 1.4rem;
+}
+
+/* ========== Responsive overrides (added) ========== */
+
+/* Use theme color for Bootstrap danger/text-danger without changing HTML */
+.btn-danger {
+  background-color: var(--theme) !important;
+  border-color: var(--theme) !important;
+  color: #fff !important;
+}
+.text-danger {
+  color: var(--theme) !important;
+}
+
+/* Make embedded maps responsive */
+#location iframe,
+article#location iframe {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+/* Instructor cards: avoid fixed heights and allow natural flow */
+section#instructors .card {
+  height: auto !important;
+  display: flex;
+  flex-direction: column;
+}
+section#instructors .card img.card-img-top {
+  object-fit: cover;
+  width: 100%;
+  height: 200px;
+}
+section#instructors .card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Make social icons slightly smaller on narrow screens */
+.socials i {
+  font-size: 1.6rem;
+}
+
+/* Carousel: limit height on small screens and make captions readable */
+.carousel-item {
+  height: min(60vh, calc(100vh - 88px));
+}
+.carousel-item img {
+  width: 100%;
+  height: 60%;
+  object-fit: contain;
+}
+.carousel-caption {
+  bottom: 3rem;
+  padding: 0.8rem 1rem;
+}
+.carousel-item h5 {
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+}
+.carousel-item p {
+  font-size: clamp(0.9rem, 1.8vw, 1rem);
+}
+.carousel-item .btn {
+  width: auto;
+  padding: 0.5rem 0.9rem;
+}
+
+/* Ensure carousel controls are visible and black */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  /* use filter to invert default white svg to black */
+  filter: invert(1) !important;
+}
+
+/* Small-screen tweaks */
+@media (max-width: 767.98px) {
+  .carousel-caption.d-none.d-md-block {
+    display: block !important;
+    background: rgba(0,0,0,0.35);
+    left: 1rem;
+    right: 1rem;
+    bottom: 1.5rem;
+  }
+  .carousel-item {
+    height: 50vh;
+  }
+  .navbar .navbar-brand img {
+    max-width: 140px;
+  }
+  section#students img {
+    max-width: 100%;
+    height: auto;
+  }
+  .socials i {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 479.98px) {
+  section#instructors .card img.card-img-top {
+    height: 160px;
+  }
+  .carousel-item h5 { font-size: 1.1rem; }
+  .carousel-item p { font-size: 0.9rem; }
+}
